@@ -1,11 +1,11 @@
 package br.com.guilherme.java.collections.test;
 
+import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
 
 public class TestSet {
     public static void main(String[] args) {
-        Set<String> alunos = new HashSet<>();
+        Collection<String> alunos = new HashSet<>();
         alunos.add("teste");
         alunos.add("teste1");
         alunos.add("teste2");
