@@ -16,5 +16,8 @@ public class TestSet {
         boolean matriculado = alunos.contains("teste5");
         System.out.println(matriculado);
         System.out.println(alunos);
+        for (String aluno : alunos) {
+            System.out.println(aluno);
+        }
     }
 }
