@@ -2,12 +2,15 @@ package br.com.guilherme.java.collections.models;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Cursos {
     private String nome;
     private String instrutor;
     private List<Aula> aulas = new ArrayList<>();
+    private Set<Aluno> alunos = new HashSet<>();
     private int tempoTotal;
 
     public Cursos(String nome, String instrutor) {
@@ -43,6 +46,17 @@ public class Cursos {
                 + ", tempoTotal:" + tempoTotal + "]";
     }
 
+    public void matricula(Aluno aluno) {
+        this.alunos.add(aluno);
+    }
+
+    public Set<Aluno> getAlunos() {
+        return Collections.unmodifiableSet(alunos);
+    }
+
+    public boolean estaMatriculado(Aluno a1) {
+        return this.alunos.contains(a1);
+    }
 
 
 }
