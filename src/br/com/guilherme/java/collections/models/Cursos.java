@@ -2,8 +2,10 @@ package br.com.guilherme.java.collections.models;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class Cursos {
@@ -11,6 +13,8 @@ public class Cursos {
     private String instrutor;
     private List<Aula> aulas = new ArrayList<>();
     private Set<Aluno> alunos = new HashSet<>();
+    private Map<Integer, Aluno> mapAlunos = new HashMap<>();
+
     private int tempoTotal;
 
     public Cursos(String nome, String instrutor) {
@@ -48,6 +52,7 @@ public class Cursos {
 
     public void matricula(Aluno aluno) {
         this.alunos.add(aluno);
+        this.mapAlunos.put(aluno.getNumeroMatricula(), aluno);
     }
 
     public Set<Aluno> getAlunos() {
@@ -56,6 +61,14 @@ public class Cursos {
 
     public boolean estaMatriculado(Aluno a1) {
         return this.alunos.contains(a1);
+    }
+
+    public Aluno buscaMatricula(int i) {
+        return mapAlunos.get(i);
+    }
+
+    public void iteraSobreMap() {
+        this.mapAlunos.forEach((k, v) -> System.out.println(v));
     }
 
 
